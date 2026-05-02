@@ -35,3 +35,14 @@ AI Analysis Result:
 ✔ Country: ${country}
 ✔ Visa Type: ${visaType}
 ✔ Location: ${city}
+
+📊 Based on simulated availability data,
+the earliest recommended appointment is:
+
+👉 ${bestDate}
+
+⚡ Suggestion:
+Check appointments daily between 09:00 - 11:00 for higher success rate.
+Enable notifications to catch earlier slots instantly.
+`;
+}

@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yapay Zeka Vize Randevu Asistanı</title>
+  <title>Yapay Zeka Vize Randevu Takip Paneli</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="app">
     <header>
       <div>
-        <h1>Yapay Zeka Vize Randevu Asistanı</h1>
-        <p>Akıllı vize randevu takip ve uygunluk analiz paneli</p>
+        <h1>Yapay Zeka Vize Randevu Takip Paneli</h1>
+        <p>Kullanıcının eklediği randevu tarihlerini analiz eden akıllı takip sistemi</p>
       </div>
       <span class="badge">AI Destekli</span>
     </header>
 
     <main class="dashboard">
       <section class="card form-card">
-        <h2>Randevu Arama</h2>
+        <h2>Randevu Bilgisi Ekle</h2>
 
         <label>Vize Ülkesi</label>
         <select id="country">
@@ -45,30 +45,32 @@
           <option>Bursa</option>
         </select>
 
-        <button onclick="analyzeAppointments()">Randevuları Analiz Et</button>
+        <label>Bulunan Randevu Tarihi</label>
+        <input type="date" id="appointmentDate" />
+
+        <button onclick="addAppointment()">Randevuyu Listeye Ekle</button>
+        <button class="secondary" onclick="analyzeAppointments()">Yapay Zeka ile Analiz Et</button>
       </section>
 
       <section class="card ai-card">
         <h2>Yapay Zeka Analizi</h2>
-        <p id="aiText">
-          Seçim yapıp analiz başlatın.
-        </p>
+        <p id="aiText">Henüz analiz yapılmadı.</p>
       </section>
 
       <section class="card">
-        <h2>Mevcut Randevular</h2>
+        <h2>Eklenen Randevular</h2>
         <div id="appointmentList" class="appointment-list">
-          <p class="empty">Henüz arama yapılmadı.</p>
+          <p class="empty">Henüz randevu eklenmedi.</p>
         </div>
       </section>
 
       <section class="card">
-        <h2>Bildirim Simülasyonu</h2>
+        <h2>Bildirim Sistemi</h2>
         <p>
-          Bu proje, yapay zekanın daha erken vize randevularını tespit edip kullanıcıya bildirmesini simüle eder.
+          Kullanıcı yeni bir erken tarih bulduğunda sistem bunu önceliklendirir ve bildirim önerisi üretir.
         </p>
         <div class="notification">
-          🔔 Bildirim sistemi hazır
+          🔔 Erken tarih takibi aktif
         </div>
       </section>
     </main>

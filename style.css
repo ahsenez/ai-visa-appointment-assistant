@@ -68,3 +68,22 @@ button:hover {
   background: #22c55e;
   border-radius: 8px;
 }
+
+.delete-btn {
+  margin-top: 10px;
+  background: #ef4444;
+  color: white;
+  font-size: 12px;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+.secondary {
+  background: #64748b;
+}
+
+.secondary:hover {
+  background: #475569;
+}

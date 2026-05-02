@@ -32,3 +32,6 @@ appointmentList.innerHTML = "";
   aiText.innerText = `
 AI Analysis Result:
 
+✔ Country: ${country}
+✔ Visa Type: ${visaType}
+✔ Location: ${city}

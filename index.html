@@ -35,3 +35,43 @@
           <option>Business Visa</option>
           <option>Family Visit Visa</option>
         </select>
+          <label>City</label>
+        <select id="city">
+          <option>Istanbul</option>
+          <option>Ankara</option>
+          <option>Izmir</option>
+          <option>Bursa</option>
+        </select>
+
+        <button onclick="analyzeAppointments()">Analyze Appointments</button>
+      </section>
+
+      <section class="card ai-card">
+        <h2>AI Analysis</h2>
+        <p id="aiText">
+          Select your visa details and start the appointment analysis.
+        </p>
+      </section>
+      <section class="card">
+        <h2>Available Appointments</h2>
+        <div id="appointmentList" class="appointment-list">
+          <p class="empty">No search performed yet.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Notification Simulation</h2>
+        <p>
+          This project simulates how an AI assistant can notify users when earlier
+          visa appointment dates become available.
+        </p>
+        <div class="notification">
+          🔔 Notification system ready
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

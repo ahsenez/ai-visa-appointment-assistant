@@ -21,3 +21,9 @@ appointmentList.innerHTML = "";
   // Rastgele erken tarih seç (AI gibi davransın)
   const bestDate = dates[Math.floor(Math.random() * dates.length)];
 
+// Listeyi oluştur
+  dates.forEach(date => {
+    const div = document.createElement("div");
+    div.innerText = `${country} - ${city} (${visaType}) → ${date}`;
+    appointmentList.appendChild(div);
+  });

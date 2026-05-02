@@ -27,3 +27,8 @@ appointmentList.innerHTML = "";
     div.innerText = `${country} - ${city} (${visaType}) → ${date}`;
     appointmentList.appendChild(div);
   });
+
+  // AI yorum kısmı
+  aiText.innerText = `
+AI Analysis Result:
+

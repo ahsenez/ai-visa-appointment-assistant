@@ -58,3 +58,13 @@ button:hover {
   margin-top: 10px;
   border-radius: 8px;
 }
+.empty {
+  opacity: 0.6;
+}
+
+.notification {
+  margin-top: 10px;
+  padding: 10px;
+  background: #22c55e;
+  border-radius: 8px;
+}

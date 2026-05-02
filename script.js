@@ -1,4 +1,10 @@
-let appointments = [];
+let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+
+document.addEventListener("DOMContentLoaded", renderList);
+
+function saveAppointments() {
+  localStorage.setItem("appointments", JSON.stringify(appointments));
+}
 
 function addAppointment() {
   const country = document.getElementById("country").value;
@@ -6,22 +12,21 @@ function addAppointment() {
   const city = document.getElementById("city").value;
   const date = document.getElementById("appointmentDate").value;
 
-  const list = document.getElementById("appointmentList");
-
   if (!date) {
     alert("Lütfen bir tarih seç!");
     return;
   }
 
-  const appointment = {
-    country,
-    visaType,
-    city,
-    date
-  };
+  appointments.push({ country, visaType, city, date });
+  saveAppointments();
+  renderList();
 
-  appointments.push(appointment);
+  document.getElementById("appointmentDate").value = "";
+}
 
+function deleteAppointment(index) {
+  appointments.splice(index, 1);
+  saveAppointments();
   renderList();
 }
 
@@ -35,11 +40,17 @@ function renderList() {
 
   list.innerHTML = "";
 
-  appointments.forEach(item => {
-    const div = document.createElement("div");
-    div.innerText = `${item.country} - ${item.city} (${item.visaType}) → ${item.date}`;
-    list.appendChild(div);
-  });
+  appointments
+    .sort((a, b) => new Date(a.date) - new Date(b.date))
+    .forEach((item, index) => {
+      const div = document.createElement("div");
+      div.innerHTML = `
+        <strong>${item.country} - ${item.city}</strong><br>
+        ${item.visaType} → ${formatDate(item.date)}
+        <button class="delete-btn" onclick="deleteAppointment(${index})">Sil</button>
+      `;
+      list.appendChild(div);
+    });
 }
 
 function analyzeAppointments() {
@@ -53,9 +64,7 @@ function analyzeAppointments() {
   aiText.innerText = "🤖 Yapay zeka analiz yapıyor...";
 
   setTimeout(() => {
-    // Tarihleri sırala
-    const sorted = appointments.sort((a, b) => new Date(a.date) - new Date(b.date));
-
+    const sorted = [...appointments].sort((a, b) => new Date(a.date) - new Date(b.date));
     const best = sorted[0];
 
     aiText.innerText = `
@@ -67,11 +76,19 @@ Yapay Zeka Analiz Sonucu:
 
 📊 En erken randevu bulundu:
 
-👉 ${best.date}
+👉 ${formatDate(best.date)}
 
 ⚡ Öneri:
-Daha erken tarih buldukça eklemeye devam et.
-Sistemi düzenli kontrol ederek avantaj yakalayabilirsin.
+Bu tarih şu an listedeki en avantajlı seçenektir.
+Daha erken tarih buldukça sisteme eklemeye devam edebilirsin.
 `;
   }, 1500);
+}
+
+function formatDate(date) {
+  return new Date(date).toLocaleDateString("tr-TR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
 }

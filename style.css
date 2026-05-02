@@ -14,3 +14,9 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+.badge {
+  background: #22c55e;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}

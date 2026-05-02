@@ -4,3 +4,5 @@ function analyzeAppointments() {
   const city = document.getElementById("city").value;
  const appointmentList = document.getElementById("appointmentList");
   const aiText = document.getElementById("aiText");
+
+appointmentList.innerHTML = "";

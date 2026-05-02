@@ -17,3 +17,7 @@ appointmentList.innerHTML = "";
     "3 July 2026",
     "10 July 2026"
   ];
+
+  // Rastgele erken tarih seç (AI gibi davransın)
+  const bestDate = dates[Math.floor(Math.random() * dates.length)];
+

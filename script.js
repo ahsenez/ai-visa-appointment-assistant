@@ -1,48 +1,77 @@
-function analyzeAppointments() {
+let appointments = [];
+
+function addAppointment() {
   const country = document.getElementById("country").value;
   const visaType = document.getElementById("visaType").value;
   const city = document.getElementById("city").value;
+  const date = document.getElementById("appointmentDate").value;
 
-  const appointmentList = document.getElementById("appointmentList");
+  const list = document.getElementById("appointmentList");
+
+  if (!date) {
+    alert("Lütfen bir tarih seç!");
+    return;
+  }
+
+  const appointment = {
+    country,
+    visaType,
+    city,
+    date
+  };
+
+  appointments.push(appointment);
+
+  renderList();
+}
+
+function renderList() {
+  const list = document.getElementById("appointmentList");
+
+  if (appointments.length === 0) {
+    list.innerHTML = `<p class="empty">Henüz randevu eklenmedi.</p>`;
+    return;
+  }
+
+  list.innerHTML = "";
+
+  appointments.forEach(item => {
+    const div = document.createElement("div");
+    div.innerText = `${item.country} - ${item.city} (${item.visaType}) → ${item.date}`;
+    list.appendChild(div);
+  });
+}
+
+function analyzeAppointments() {
   const aiText = document.getElementById("aiText");
 
-  appointmentList.innerHTML = "";
+  if (appointments.length === 0) {
+    aiText.innerText = "Analiz için önce randevu eklemelisin.";
+    return;
+  }
 
-  // 🔄 Loading efekti
-  aiText.innerText = "🤖 AI is analyzing appointment data...";
+  aiText.innerText = "🤖 Yapay zeka analiz yapıyor...";
 
   setTimeout(() => {
-    const dates = [
-      "12 June 2026",
-      "18 June 2026",
-      "25 June 2026",
-      "3 July 2026",
-      "10 July 2026"
-    ];
+    // Tarihleri sırala
+    const sorted = appointments.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-    const bestDate = dates[Math.floor(Math.random() * dates.length)];
-
-    dates.forEach(date => {
-      const div = document.createElement("div");
-      div.innerText = `${country} - ${city} (${visaType}) → ${date}`;
-      appointmentList.appendChild(div);
-    });
+    const best = sorted[0];
 
     aiText.innerText = `
-AI Analysis Result:
+Yapay Zeka Analiz Sonucu:
 
-✔ Country: ${country}
-✔ Visa Type: ${visaType}
-✔ Location: ${city}
+✔ Ülke: ${best.country}
+✔ Şehir: ${best.city}
+✔ Vize Türü: ${best.visaType}
 
-📊 Smart pattern detection completed.
+📊 En erken randevu bulundu:
 
-👉 Best Available Slot:
-${bestDate}
+👉 ${best.date}
 
-⚡ Recommendation:
-High success probability detected between 09:00 - 11:00.
-Turn on notifications for instant booking advantage.
+⚡ Öneri:
+Daha erken tarih buldukça eklemeye devam et.
+Sistemi düzenli kontrol ederek avantaj yakalayabilirsin.
 `;
   }, 1500);
 }

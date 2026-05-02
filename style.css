@@ -31,3 +31,14 @@ header {
   padding: 20px;
   border-radius: 12px;
 }
+.card h2 {
+  margin-top: 0;
+}
+
+select, button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}

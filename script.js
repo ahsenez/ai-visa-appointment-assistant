@@ -8,3 +8,12 @@ function analyzeAppointments() {
 
 appointmentList.innerHTML = "";
 
+
+  // Fake appointment data (simülasyon)
+  const dates = [
+    "12 June 2026",
+    "18 June 2026",
+    "25 June 2026",
+    "3 July 2026",
+    "10 July 2026"
+  ];

@@ -7,3 +7,4 @@ function analyzeAppointments() {
   const aiText = document.getElementById("aiText");
 
 appointmentList.innerHTML = "";
+

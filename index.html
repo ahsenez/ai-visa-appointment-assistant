@@ -1,75 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Visa Appointment Assistant</title>
+  <title>Yapay Zeka Vize Randevu Asistanı</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="app">
     <header>
       <div>
-        <h1>AI Visa Appointment Assistant</h1>
-        <p>Smart visa appointment tracking and availability analysis panel</p>
+        <h1>Yapay Zeka Vize Randevu Asistanı</h1>
+        <p>Akıllı vize randevu takip ve uygunluk analiz paneli</p>
       </div>
-      <span class="badge">AI Powered</span>
+      <span class="badge">AI Destekli</span>
     </header>
 
     <main class="dashboard">
       <section class="card form-card">
-        <h2>Appointment Search</h2>
+        <h2>Randevu Arama</h2>
 
-        <label>Visa Country</label>
+        <label>Vize Ülkesi</label>
         <select id="country">
-          <option>France</option>
-          <option>Germany</option>
-          <option>Italy</option>
-          <option>Netherlands</option>
-          <option>Spain</option>
+          <option>Fransa</option>
+          <option>Almanya</option>
+          <option>İtalya</option>
+          <option>Hollanda</option>
+          <option>İspanya</option>
         </select>
 
-        <label>Visa Type</label>
+        <label>Vize Türü</label>
         <select id="visaType">
-          <option>Tourist Visa</option>
-          <option>Student Visa</option>
-          <option>Business Visa</option>
-          <option>Family Visit Visa</option>
+          <option>Turistik Vize</option>
+          <option>Öğrenci Vizesi</option>
+          <option>Ticari Vize</option>
+          <option>Aile Ziyareti Vizesi</option>
         </select>
 
-        <label>City</label>
+        <label>Şehir</label>
         <select id="city">
-          <option>Istanbul</option>
+          <option>İstanbul</option>
           <option>Ankara</option>
-          <option>Izmir</option>
+          <option>İzmir</option>
           <option>Bursa</option>
         </select>
 
-        <button onclick="analyzeAppointments()">Analyze Appointments</button>
+        <button onclick="analyzeAppointments()">Randevuları Analiz Et</button>
       </section>
 
       <section class="card ai-card">
-        <h2>AI Analysis</h2>
+        <h2>Yapay Zeka Analizi</h2>
         <p id="aiText">
-          Select your visa details and start the appointment analysis.
+          Seçim yapıp analiz başlatın.
         </p>
       </section>
 
       <section class="card">
-        <h2>Available Appointments</h2>
+        <h2>Mevcut Randevular</h2>
         <div id="appointmentList" class="appointment-list">
-          <p class="empty">No search performed yet.</p>
+          <p class="empty">Henüz arama yapılmadı.</p>
         </div>
       </section>
 
       <section class="card">
-        <h2>Notification Simulation</h2>
+        <h2>Bildirim Simülasyonu</h2>
         <p>
-          This project simulates how an AI assistant can notify users when earlier
-          visa appointment dates become available.
+          Bu proje, yapay zekanın daha erken vize randevularını tespit edip kullanıcıya bildirmesini simüle eder.
         </p>
         <div class="notification">
-          🔔 Notification system ready
+          🔔 Bildirim sistemi hazır
         </div>
       </section>
     </main>

@@ -4,3 +4,8 @@ body {
   background: #0f172a;
   color: white;
 }
+.app {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
